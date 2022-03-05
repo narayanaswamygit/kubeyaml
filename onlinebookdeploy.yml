@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: testonlinebook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testonlinebooksto
+  template:
+    metadata:
+      name: testonlinebook 
+      labels:
+        app: testonlinebooksto
+    spec:
+      containers:
+        - name: bookcontainer
+          image: shiva.azurecr.io/shiva/sampleapp:latest
+          imagePullPolicy: Always
+          ports: 
+            - containerPort: 8080
+            
